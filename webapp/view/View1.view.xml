@@ -1,0 +1,66 @@
+<mvc:View controllerName="projectnew2.project2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt">
+    <Page id="page" title="{i18n>title}">
+        <content />
+        <content>
+        <f:DynamicPage toggleHeaderOnTitleClick="false" id="detailArea" visible="false">
+        <f:content>
+			<Link text="Navigate to next page…" press="handleAboutPress" />
+		</f:content>
+	    </f:DynamicPage>
+        <!-- <SearchField width="30%" class="sapUiSmallMargin" id="SearchField1" placeholder="Buscar" liveChange="onSearch"/>
+        <List mode="Delete" items="{path: 'certifications>/Invoices'}" id="listId" >
+            <CustomListItem type="Navigation" id="item0">
+                <HBox id="id1">
+                    <core:Icon size="2rem" src="sap-icon://source-code" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" id="id5" />
+                    <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" renderType= "List" id="vbox1" >
+                    <Link text="{certifications>ShipName}" target="{certifications>ProductID}" press="handlePress" id="link1"/>
+                        <Label text="{certifications>OrderDate}" id="lb1"/>
+                    </VBox>
+                </HBox>
+            </CustomListItem>
+        </List> -->
+        <Table id="myTable" items="{path: 'certifications>/Invoices'}" itemPress="handleItemPress" width="90%">
+            <columns>
+                <Column width="8rem"> 
+                    <Text text="Type" />
+                </Column>
+                <Column> 
+                    <Text text="Reference" />
+                </Column>
+                <Column>
+                    <Text text="Summary" />
+                </Column>
+                <Column>
+                    <Text text="Date" />
+                </Column>
+                <Column>
+                    <Text text="Status" />
+                </Column>
+                <Column>
+                    <Text text="Created By" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation">
+                    <cells>
+                    <core:Icon size="2rem" src="sap-icon://message-information" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" id="id5" />
+                    <!-- <tnt:InfoLabel id="il8" colorScheme="8" icon="sap-icon://message-information" /> -->
+                    <Text text="{certifications>OrderID}" />
+                    <Text text="{certifications>ProductName}" />
+                    <Text text="{certifications>ShippedDate}" />
+				    <!-- <tnt:InfoLabel id="il7" text="Activo" colorScheme="7" width="5rem"/>  -->
+                    <ObjectIdentifier
+						text="Activo"/>
+                    <Text text="{certifications>ShipName}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </content>
+    </Page>
+</mvc:View>
